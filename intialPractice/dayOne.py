@@ -2,7 +2,7 @@ import dayOneData
 
 data = dayOneData.data.split(', ')
 coords = []
-x, y = 0,0
+
 class dayOne:
 
    def __init__(self):
@@ -25,19 +25,20 @@ class dayOne:
 
       x = self.position[0]
       y = self.position[1]
-      return([x,y])
+
+   def getPosition(self):
+      return self.position
       
 
 start = dayOne()
 
+givenCord = []
+
 for z in data:
-   coords.append(start.parseInstruc(z))
+   start.parseInstruc(z)
+   currentPos = start.getPosition()
+   if currentPos in givenCord:
+      pass
+   givenCord.append(currentPos)
 
-
-print(start.position[0] + start.position[1])
-
-
-print(coords)
-
-
-      
+print(givenCord)
