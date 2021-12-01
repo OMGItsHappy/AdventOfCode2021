@@ -1,7 +1,8 @@
 import dayOneData
 
 data = dayOneData.data.split(', ')
-
+coords = []
+x, y = 0,0
 class dayOne:
 
    def __init__(self):
@@ -22,14 +23,21 @@ class dayOne:
       elif self.angle == 180: self.position[0] -= distance
       elif self.angle == 270: self.position[1] -= distance
 
+      x = self.position[0]
+      y = self.position[1]
+      return([x,y])
+      
+
 start = dayOne()
 
-for x in data:
-   start.parseInstruc(x)
+for z in data:
+   coords.append(start.parseInstruc(z))
+
 
 print(start.position[0] + start.position[1])
 
 
+print(coords)
 
 
       
